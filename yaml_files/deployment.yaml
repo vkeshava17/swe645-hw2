@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645-hw2-deployment
+  labels:
+    swe645-hw2: tomcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      swe645-hw2: tomcat
+  template:
+    metadata:
+      labels:
+        swe645-hw2: tomcat
+    spec:
+      containers:
+      - name: swe645-hw2
+        image: vkeshava/swe645:0.1
+        ports:
+        - containerPort: 8080
